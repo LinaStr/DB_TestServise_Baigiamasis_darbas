@@ -1,0 +1,33 @@
+CREATE TABLE User(
+    user_id INT AUTO_INCREMENT PRIMARY KEY,
+	name VARCHAR(255),
+	password VARCHAR(255),
+    title VARCHAR(255)
+); 
+
+CREATE TABLE Test(
+	test_id INT AUTO_INCREMENT PRIMARY KEY,
+	test_name VARCHAR(255)
+	);
+
+CREATE TABLE Question(
+	question_id INT AUTO_INCREMENT PRIMARY KEY,
+	test_id INT REFERENCES Test (test_id),
+	question_text VARCHAR(255),
+);
+
+CREATE TABLE Answer(
+	answer_id INT AUTO_INCREMENT PRIMARY KEY,
+	question_id INT REFERENCES Question (question_id ),
+	answer VARCHAR(255),
+	is_right BOOLEAN
+);
+
+CREATE TABLE Result(
+	result_id INT NOT NULL PRIMARY KEY,
+	user_id INT REFERENCES User (user_id),
+	test_id INT REFERENCES Test (test_id),
+	question_id INT REFERENCES Question (question_id ),
+	answer_id INT REFERENCES Answer (answer_id),
+	user_answer VARCHAR(255),
+);

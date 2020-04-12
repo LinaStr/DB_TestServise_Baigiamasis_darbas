@@ -1,0 +1,29 @@
+<hibernate-configuration xmlns="http://www.hibernate.org/xsd/orm/cfg">
+    <session-factory>
+        <property name="hibernate.dialect">
+            org.hibernate.dialect.H2Dialect
+        </property>
+        <property name="hibernate.connection.driver_class">
+            org.h2.Driver
+        </property>
+        <property name="hibernate.connection.url">
+            jdbc:h2:tcp://localhost/~/test
+        </property>
+        <property name="hibernate.connection.username">
+            sa
+        </property>
+        <property name="hibernate.connection.password">
+
+        </property>
+        <property name="hibernate.connection.autocommit">
+            false
+        </property>
+<!--        <property name="hibernate.hbm2ddl.auto">create</property>-->
+
+        <mapping class = "org.example.entities.Answer"/>
+        <mapping class = "org.example.entities.Question"/>
+        <mapping class = "org.example.entities.Test"/>
+        <mapping class = "org.example.entities.User"/>
+        <mapping class = "org.example.entities.Result"/>
+    </session-factory>
+</hibernate-configuration>
